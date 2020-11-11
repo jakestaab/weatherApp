@@ -4,13 +4,32 @@
         <title>JStaab Weather App</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="styles" href="index.css">
+        <link rel="stylesheet" href="./styles/index.css">
     </head>
-    <header>
-        <h1>Jake Staab Weather</h1>
-    </header>
     <body>
-        <p>This is a paragraph.</p>
+        <header>
+            <h1>Weather App</h1>
+        </header>
+        <main class="default_weather">
+            <div class="location">
+                <span class="">Showing weather for </span>
+                <span>Lawrence, KS</span>
+            </div>
+            <form class="example" action="">
+                <input type="text" placeholder="Search locations" name="search">
+                <button type="submit">Search</button>
+            </form><br>
+            <div>
+                <span class="unit">Conditions: </span><span id="conditions"></span>
+                <span class="unit">Temp: </span><span id="temp"></span>
+                <span class="unit">Wind: </span><span id="wind"></span>
+                <span class="unit">Humidity: </span><span id="humidity"></span>
+                <span class="unit">Visibility: </span><span id="visibility"></span>
+            </div>
+        </main>
+        <footer>
+            <p>this is the footer</p>
+        </footer>
     </body>
     <script type="module" src="main.js"></script>
 </html>

@@ -1,3 +1,54 @@
-h1 {
-    font-weight: bold;
+
+$main_bg: #000000;
+$secondary_bg: #383838;
+$main_fnt: Helvetica;
+$main_fnt_clr: #a0a0a0;
+$unit_fnt_clr: #b8aeae96;
+
+header { 
+    background-color: $secondary_bg;
+    font-family: $main_fnt;
+    font-size: 125%;
+    color: white;
+    text-align: left;
+}
+
+body {
+    background-color: $main_bg;
+    font-family: $main_fnt_clr;
+    color: $main_fnt_clr;
+    text-align: center;
+}
+
+footer {
+    background-color: $main_bg;
+    font-family: $main_fnt_clr;
+    color: $main_fnt_clr;
+    text-align: center;
+}
+
+.default_weather {
+    background-color: $secondary_bg;
+    font-family: $main_fnt;
+    font-size: 100%;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin: 0;
+}
+
+.unit {
+    background-color: $secondary_bg;
+    font-family: $main_fnt;
+    font-size: 100%;
+    color: $unit_fnt_clr;
+    text-align: left;
+}
+
+.location {
+    background-color: $secondary_bg;
+    font-family: $main_fnt;
+    font-size: 150%;
+    color: $unit_fnt_clr;
+    text-align: center;
 }

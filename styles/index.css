@@ -1,4 +1,48 @@
-h1 {
-  font-weight: bold;
+header {
+  background-color: #383838;
+  font-family: Helvetica;
+  font-size: 125%;
+  color: white;
+  text-align: left;
+}
+
+body {
+  background-color: #000000;
+  font-family: #a0a0a0;
+  color: #a0a0a0;
+  text-align: center;
+}
+
+footer {
+  background-color: #000000;
+  font-family: #a0a0a0;
+  color: #a0a0a0;
+  text-align: center;
+}
+
+.default_weather {
+  background-color: #383838;
+  font-family: Helvetica;
+  font-size: 100%;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.unit {
+  background-color: #383838;
+  font-family: Helvetica;
+  font-size: 100%;
+  color: #b8aeae96;
+  text-align: left;
+}
+
+.location {
+  background-color: #383838;
+  font-family: Helvetica;
+  font-size: 150%;
+  color: #b8aeae96;
+  text-align: center;
 }
 /*# sourceMappingURL=index.css.map */
