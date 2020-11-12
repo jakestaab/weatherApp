@@ -16,7 +16,8 @@ const weatherList = {
 const getWeather = async () => {
     const data = await fetch(weatherURL("Lawrence,Kansas"));
     const weatherData = await data.json();
-    let conditions = "Haze";
+    console.log(weatherData);
+    let conditions = weatherData.weather[0].main;
     let temp = weatherData.main.temp;
     let wind = weatherData.wind.speed;
     let humidity = weatherData.main.humidity;
