@@ -21,6 +21,7 @@ locationButton.addEventListener("click", (event) => {
         document.getElementById('wind').innerHTML = wind;
         document.getElementById('humidity').innerHTML = humidity;
         document.getElementById('visibility').innerHTML = visibility;
+        document.getElementById('shownlocation').innerHTML = userLocation;
     }
     getUserWeather();
 }, false);

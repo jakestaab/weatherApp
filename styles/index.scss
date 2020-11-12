@@ -48,7 +48,16 @@ footer {
 .location {
     background-color: $secondary_bg;
     font-family: $main_fnt;
-    font-size: 150%;
-    color: $unit_fnt_clr;
+    font-size: 125%;
+    color: white;
+    text-align: center;
+    padding: 0px;
+}
+
+.smallfont {
+    background-color: $secondary_bg;
+    font-family: $main_fnt_clr;
+    font-size: 75%;
+    color: $main_fnt_clr;
     text-align: center;
 }
