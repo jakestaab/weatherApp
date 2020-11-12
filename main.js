@@ -29,9 +29,8 @@ locationButton.addEventListener("click", (event) => {
 const setLocationButton = document.getElementById("setlocation");
 setLocationButton.addEventListener("click", (event) => {
     localStorage.setItem("userSetLocation", JSON.stringify(userLocation));
+    locationSet = true;
 })
-
-
 
 //accepts parameter of a location
 //returns the API URL with that location
