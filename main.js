@@ -2,8 +2,7 @@ import { WEATHER_API_KEY } from './apikey.js';
 
 let defaultLocation;
 
-//accepts parameter of a location
-//returns the API URL with that location
+//accepts parameter of a location; returns the API URL with that location
 const weatherURL = (location) => {
     //WEATHER_API_KEY is a function that returns my API key
     let key = WEATHER_API_KEY();
@@ -11,18 +10,19 @@ const weatherURL = (location) => {
                      location + "&units=imperial&appid=" + key;
 }
 
-//checks if user has set a default location manually
-//if so, sets defaultLocation to that location, otherwise, defaults to Lawrence, Kansas
+//assigns to defaultLocation the city data to be displayed on page
+//first checks localStorage, then defaults to Lawrence, Kansas
+//or alternatively uses what has just been searched for
 function locationCheck() {
     if(localStorage.getItem("userSetLocation")) {
         defaultLocation = JSON.parse(localStorage.getItem("userSetLocation"));
     } else {
         defaultLocation = "Lawrence, Kansas";
     }
-    const locationButton = document.getElementById("locale");
+    const locationButton = document.getElementById("search");
     locationButton.addEventListener("click", (event) => {
     defaultLocation = document.getElementById("searchedLocation").value;
-    getWeather();
+    getWeather(); //if search button clicked, getWeather needs to be called here
 }, false);
 console.log(defaultLocation);
 }
