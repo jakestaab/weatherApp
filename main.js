@@ -13,7 +13,7 @@ const weatherURL = (location) => {
 //assigns to defaultLocation the city data to be displayed on page
 //first checks localStorage, then defaults to Lawrence, Kansas
 //or alternatively uses what has just been searched for
-function locationCheck() {
+const locationCheck = () => {
     if(localStorage.getItem("userSetLocation")) {
         defaultLocation = JSON.parse(localStorage.getItem("userSetLocation"));
     } else {

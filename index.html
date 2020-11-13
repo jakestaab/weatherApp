@@ -12,13 +12,16 @@
         </header>
         <main class="default_weather">
             <div>
-                <input type="text" id="searchedLocation" placeholder="Search locations">
-                <button id="search">Search</button>
+                <input type="text" id="searchedLocation"
+                placeholder="Search locations" tabindex="0"/>
+                <button id="search" title="search locations"
+                aria-label="search city locations for weather" tabindex="0">Search</button>
             </div><br>
             <div class="location">
                 <span>Showing weather for </span>
                 <span id="shownlocation">Lawrence, KS</span>
-                <button id="setlocation">set default location</button>
+                <button id="setlocation" title="set default location"
+                aria-label="set current location as default">set default location</button>
             </div>
             <div>
                 <span class="unit">Conditions: </span><span id="conditions"></span>
