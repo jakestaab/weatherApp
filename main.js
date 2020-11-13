@@ -1,4 +1,6 @@
 import { WEATHER_API_KEY } from './apikey.js';
+import { windConversion, capitalizeLocation } from './format_funcs.js';
+//import { capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
 
@@ -24,7 +26,6 @@ const locationCheck = () => {
     defaultLocation = document.getElementById("searchedLocation").value;
     getWeather(); //if search button clicked, getWeather needs to be called here
 }, false);
-console.log(defaultLocation);
 }
 locationCheck();
 
@@ -38,17 +39,20 @@ setLocationButton.addEventListener("click", (event) => {
 const getWeather = async () => {
     const data = await fetch(weatherURL(defaultLocation));
     const weatherData = await data.json();
-    console.log(weatherData);
     let conditions = weatherData.weather[0].main;
     let temp = weatherData.main.temp;
     let wind = weatherData.wind.speed;
     let humidity = weatherData.main.humidity;
     let visibility = (weatherData.visibility / 1000);
+    let pressure = (weatherData.main.pressure / 33.86);
+    let direction = weatherData.wind.deg;
     document.getElementById('conditions').innerHTML = conditions;
     document.getElementById('temp').innerHTML = temp;
-    document.getElementById('wind').innerHTML = wind;
+    document.getElementById('wind').innerHTML = Math.round(wind);
     document.getElementById('humidity').innerHTML = humidity;
     document.getElementById('visibility').innerHTML = visibility;
-    document.getElementById('shownlocation').innerHTML = defaultLocation;
+    document.getElementById('pressure').innerHTML = pressure.toFixed(2);
+    document.getElementById('direction').innerHTML = windConversion(direction);
+    document.getElementById('shownlocation').innerHTML = capitalizeLocation(defaultLocation);
 }
 getWeather();
