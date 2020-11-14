@@ -11,6 +11,11 @@ const weatherURL = (location) => {
                      location + "&units=imperial&appid=" + key;
 }
 
+const iconURL = (code) => {
+    let insert = String(code);
+    return "http://openweathermap.org/img/wn/" + insert + "@2x.png";
+}
+
 //assigns to defaultLocation the city data to be displayed on page
 //first checks localStorage, then defaults to Lawrence, Kansas
 //or alternatively uses what has just been searched for
@@ -34,11 +39,6 @@ setLocationButton.addEventListener("click", (event) => {
     localStorage.setItem("userSetLocation", JSON.stringify(defaultLocation));
 })
 
-const iconURL = (code) => {
-    let insert = String(code);
-    return "http://openweathermap.org/img/wn/" + insert + "@2x.png";
-}
-
 //retrieves weather API data and inputs object property values into HTML
 const getWeather = async () => {
     const data = await fetch(weatherURL(defaultLocation));
@@ -51,8 +51,6 @@ const getWeather = async () => {
     let visibility = (weatherData.visibility / 1000);
     let pressure = (weatherData.main.pressure / 33.86);
     let direction = weatherData.wind.deg;
-
-    console.log(icon);
 
     document.getElementById('icon').src = icon;
     document.getElementById('conditions').innerHTML = conditions;
