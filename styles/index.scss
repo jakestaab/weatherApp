@@ -1,6 +1,6 @@
 
-$main_bg: #000000;
-$secondary_bg: #383838;
+$main_bg: #140e4e;
+$secondary_bg: #5a405a;
 $main_fnt: Helvetica;
 $main_fnt_clr: #a0a0a0;
 $unit_fnt_clr: #b8aeae96;
@@ -28,7 +28,7 @@ footer {
 }
 
 .default_weather {
-    background-color: $secondary_bg;
+    background-color: $main_bg;
     font-family: $main_fnt;
     font-size: 100%;
     color: white;
@@ -51,6 +51,12 @@ footer {
     font-size: 125%;
     color: white;
     text-align: center;
+    border: 1px solid black;
+    box-shadow: 3px 5px 5px rgb(32, 39, 133);
+    width: 200px;
+    height: 250px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .smallfont {
@@ -59,4 +65,43 @@ footer {
     font-size: 75%;
     color: $main_fnt_clr;
     text-align: center;
+}
+
+.temp {
+    font-size: 350%;
+}
+
+.search {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.round {
+    width: 35%;
+    border-radius: 15px;
+    border: 1px #000 solid;
+    padding: 5px 5px 5px 25px;
+    position: center;
+    top: 0;
+    left: 0;
+    text-align: center;
+}
+
+.corner {
+    top: 3px;
+    left: 5px;
+    height: 27px;
+    width: 55px;
+    z-index: 10;
+    border-radius: 10px;
+    border: none;
+    background: white;
+    text-align: center;
+}
+
+.search {
+    position: relative;
+    width: 500px;
+    height: 30px;
 }

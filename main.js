@@ -11,13 +11,14 @@ const weatherURL = (location) => {
                      location + "&units=imperial&appid=" + key;
 }
 
+//accepts parameter of API icon code; returns API URL for that code
 const iconURL = (code) => {
     let insert = String(code);
     return "http://openweathermap.org/img/wn/" + insert + "@2x.png";
 }
 
 //assigns to defaultLocation the city data to be displayed on page
-//first checks localStorage, then defaults to Lawrence, Kansas
+//first checks localStorage, else defaults to Lawrence, Kansas
 //or alternatively uses what has just been searched for
 const locationCheck = () => {
     if(localStorage.getItem("userSetLocation")) {
@@ -56,9 +57,9 @@ const getWeather = async () => {
     document.getElementById('conditions').innerHTML = conditions;
     document.getElementById('temp').innerHTML = Math.round(temp) + "°";
     document.getElementById('wind').innerHTML = Math.round(wind) + "mph";
-    document.getElementById('humidity').innerHTML = humidity;
+    document.getElementById('humidity').innerHTML = humidity + "%";
     document.getElementById('visibility').innerHTML = visibility;
-    document.getElementById('pressure').innerHTML = pressure.toFixed(2);
+    document.getElementById('pressure').innerHTML = pressure.toFixed(2) + "\"Hg";
     document.getElementById('direction').innerHTML = windConversion(direction);
     document.getElementById('shownlocation').innerHTML = capitalizeLocation(defaultLocation);
 }

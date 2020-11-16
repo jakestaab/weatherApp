@@ -9,30 +9,31 @@
     <body>
         <header>
             <h1>Weather App</h1>
-        </header>
-        <main class="default_weather">
-            <div>
-                <input type="text" id="searchedLocation"
+            <div class="search">
+                <input type="text" class="round" id="searchedLocation"
                 placeholder="Search cities" tabindex="0"/>
-                <button id="search" title="search locations"
+                <button id="search" class="corner" title="search locations"
                 aria-label="search city locations for weather" tabindex="0">Search</button>
             </div><br>
+        </header>
+        <main class="default_weather">
+            
             <div class="location">
-                <span id="shownlocation">Lawrence, KS</span>
+                <span id="shownlocation" tabindex="0"></span>
                 <button id="setlocation" title="set default location"
-                aria-label="set current location as default">set default location</button>
+                aria-label="set current location as default" tabindex="0">set default location</button>
+                <img id="icon" src="">
+                <div id="temp" class="temp" tabindex="0"></div>
             </div>
-            <img id="icon" src="">
+            
             <div>
-                <span class="unit">Sky Condition: </span><span id="conditions"></span>
-                <span class="unit">Temp: </span><span id="temp"></span>
-                <span class="unit">Wind: </span><span id="wind"></span>
-                <span class="unit">Humidity %: </span><span id="humidity"></span>
-                <span class="unit">Visibility: </span><span id="visibility"></span>
-
-                <span class="unit">Pressure: </span><span id="pressure"></span>
-                <span class="unit">Wind Direction: </span><span id="direction"></span>
-                <span class="unit">Visibility: </span><span id="visibility"></span>
+                <span class="unit" tabindex="0">Sky Condition: </span><span id="conditions" tabindex="0"></span>
+                <span class="unit" tabindex="0">Temp: </span><span id="temp" tabindex="0"></span>
+                <span class="unit" tabindex="0">Wind: </span><span id="wind" tabindex="0"></span>
+                <span class="unit" tabindex="0">Wind Direction: </span><span id="direction" tabindex="0"></span>
+                <span class="unit" tabindex="0">Humidity: </span><span id="humidity" tabindex="0"></span>
+                <span class="unit" tabindex="0">Visibility: </span><span id="visibility" tabindex="0"></span>
+                <span class="unit" tabindex="0">Pressure: </span><span id="pressure" tabindex="0"></span>
             </div>
         </main>
         <footer>

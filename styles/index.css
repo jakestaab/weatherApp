@@ -1,5 +1,5 @@
 header {
-  background-color: #383838;
+  background-color: #5a405a;
   font-family: Helvetica;
   font-size: 125%;
   color: white;
@@ -7,21 +7,21 @@ header {
 }
 
 body {
-  background-color: #000000;
+  background-color: #140e4e;
   font-family: #a0a0a0;
   color: #a0a0a0;
   text-align: center;
 }
 
 footer {
-  background-color: #000000;
+  background-color: #140e4e;
   font-family: #a0a0a0;
   color: #a0a0a0;
   text-align: center;
 }
 
 .default_weather {
-  background-color: #383838;
+  background-color: #140e4e;
   font-family: Helvetica;
   font-size: 100%;
   color: white;
@@ -31,7 +31,7 @@ footer {
 }
 
 .unit {
-  background-color: #383838;
+  background-color: #5a405a;
   font-family: Helvetica;
   font-size: 100%;
   color: #b8aeae96;
@@ -39,18 +39,64 @@ footer {
 }
 
 .location {
-  background-color: #383838;
+  background-color: #5a405a;
   font-family: Helvetica;
   font-size: 125%;
   color: white;
   text-align: center;
+  border: 1px solid black;
+  -webkit-box-shadow: 3px 5px 5px #202785;
+          box-shadow: 3px 5px 5px #202785;
+  width: 200px;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .smallfont {
-  background-color: #383838;
+  background-color: #5a405a;
   font-family: #a0a0a0;
   font-size: 75%;
   color: #a0a0a0;
   text-align: center;
+}
+
+.temp {
+  font-size: 350%;
+}
+
+.search {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.round {
+  width: 35%;
+  border-radius: 15px;
+  border: 1px #000 solid;
+  padding: 5px 5px 5px 25px;
+  position: center;
+  top: 0;
+  left: 0;
+  text-align: center;
+}
+
+.corner {
+  top: 3px;
+  left: 5px;
+  height: 27px;
+  width: 55px;
+  z-index: 10;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  text-align: center;
+}
+
+.search {
+  position: relative;
+  width: 500px;
+  height: 30px;
 }
 /*# sourceMappingURL=index.css.map */
