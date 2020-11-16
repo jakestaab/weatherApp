@@ -17,22 +17,20 @@
             </div><br>
         </header>
         <main class="default_weather">
-            
             <div class="location">
-                <span id="shownlocation" tabindex="0"></span>
-                <button id="setlocation" title="set default location"
-                aria-label="set current location as default" tabindex="0">set default location</button>
+                <span id="shownlocation" tabindex="0"></span><br>
+                <button id="setlocation" title="set default location" class="default"
+                aria-label="set current location as default"
+                tabindex="0">set default location</button><br>
                 <img id="icon" src="">
                 <div id="temp" class="temp" tabindex="0"></div>
             </div>
-            
-            <div>
-                <span class="unit" tabindex="0">Sky Condition: </span><span id="conditions" tabindex="0"></span>
-                <span class="unit" tabindex="0">Temp: </span><span id="temp" tabindex="0"></span>
-                <span class="unit" tabindex="0">Wind: </span><span id="wind" tabindex="0"></span>
-                <span class="unit" tabindex="0">Wind Direction: </span><span id="direction" tabindex="0"></span>
-                <span class="unit" tabindex="0">Humidity: </span><span id="humidity" tabindex="0"></span>
-                <span class="unit" tabindex="0">Visibility: </span><span id="visibility" tabindex="0"></span>
+            <div class="conditions">
+                <span class="unit" tabindex="0">Sky Condition: </span><span id="conditions" tabindex="0"></span><br>
+                <span class="unit" tabindex="0">Wind: </span><span id="wind" tabindex="0"></span><br>
+                <span class="unit" tabindex="0">Wind Direction: </span><span id="direction" tabindex="0"></span><br>
+                <span class="unit" tabindex="0">Humidity: </span><span id="humidity" tabindex="0"></span><br>
+                <span class="unit" tabindex="0">Visibility: </span><span id="visibility" tabindex="0"></span><br>
                 <span class="unit" tabindex="0">Pressure: </span><span id="pressure" tabindex="0"></span>
             </div>
         </main>

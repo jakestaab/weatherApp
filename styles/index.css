@@ -4,6 +4,11 @@ header {
   font-size: 125%;
   color: white;
   text-align: left;
+  margin: 10px;
+}
+
+h1 {
+  padding: 15px;
 }
 
 body {
@@ -38,19 +43,30 @@ footer {
   text-align: left;
 }
 
-.location {
+.location, .conditions {
   background-color: #5a405a;
   font-family: Helvetica;
-  font-size: 125%;
+  font-size: 150%;
   color: white;
   text-align: center;
   border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
   -webkit-box-shadow: 3px 5px 5px #202785;
           box-shadow: 3px 5px 5px #202785;
-  width: 200px;
-  height: 250px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 350px;
+  height: 30%;
+  margin-left: 10px;
+  margin-right: 20px;
+  float: left;
+  padding: 10px;
+}
+
+.conditions {
+  font-size: 125%;
+  color: white;
+  text-align: left;
+  width: 275px;
+  height: 40%;
 }
 
 .smallfont {
@@ -72,7 +88,7 @@ footer {
 }
 
 .round {
-  width: 35%;
+  width: 65%;
   border-radius: 15px;
   border: 1px #000 solid;
   padding: 5px 5px 5px 25px;
@@ -82,7 +98,7 @@ footer {
   text-align: center;
 }
 
-.corner {
+.corner, .default {
   top: 3px;
   left: 5px;
   height: 27px;
@@ -98,5 +114,10 @@ footer {
   position: relative;
   width: 500px;
   height: 30px;
+}
+
+.default {
+  width: 45%;
+  height: 5%;
 }
 /*# sourceMappingURL=index.css.map */

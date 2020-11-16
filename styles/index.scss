@@ -11,6 +11,11 @@ header {
     font-size: 125%;
     color: white;
     text-align: left;
+    margin: 10px;
+}
+
+h1 {
+    padding: 15px;
 }
 
 body {
@@ -48,15 +53,27 @@ footer {
 .location {
     background-color: $secondary_bg;
     font-family: $main_fnt;
-    font-size: 125%;
+    font-size: 150%;
     color: white;
     text-align: center;
     border: 1px solid black;
+    border-radius: 10px 10px 10px 10px;
     box-shadow: 3px 5px 5px rgb(32, 39, 133);
-    width: 200px;
-    height: 250px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 350px;
+    height: 30%;
+    margin-left: 10px;
+    margin-right: 20px;
+    float: left;
+    padding: 10px;
+}
+
+.conditions {
+    @extend .location;
+    font-size: 125%;
+    color: white;
+    text-align: left;
+    width: 275px;
+    height: 40%;
 }
 
 .smallfont {
@@ -78,7 +95,7 @@ footer {
 }
 
 .round {
-    width: 35%;
+    width: 65%;
     border-radius: 15px;
     border: 1px #000 solid;
     padding: 5px 5px 5px 25px;
@@ -104,4 +121,10 @@ footer {
     position: relative;
     width: 500px;
     height: 30px;
+}
+
+.default {
+    @extend .corner;
+    width: 45%;
+    height: 5%;
 }
