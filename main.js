@@ -1,4 +1,3 @@
-import { WEATHER_API_KEY } from './apikey.js';
 import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
