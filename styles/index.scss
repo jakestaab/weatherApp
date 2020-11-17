@@ -163,24 +163,11 @@ footer {
         padding-left: 5%;
         padding-right: 5%;
     }
-    .temp {
-        font-size: 225%;
-    }
-
-    .default {
-        width: 40%;
-        font-size: 40%;
-    }
-
-    .location {
-        width: 100%;
-    }
-
     .search {
-        margin-left: 10%;
-        margin-right: 10%;
-        padding-left: 5%;
-        padding-right: 5%;
+        margin-left: 0%;
+        margin-right: 0%;
+        padding-left: 0%;
+        padding-right: 0%;
         width: 100%;
         height: 20px;
     }
@@ -195,11 +182,20 @@ footer {
         text-align: center;
         float: left;
     }
-
     .corner {
         float: left;
     }
+    .temp {
+        font-size: 225%;
+    }
+    .default {
+        width: 40%;
+        font-size: 40%;
+    }
 
+    .location {
+        width: 100%;
+    }
     .days {
         background-color: $main_bg;
         display: flex;
@@ -207,7 +203,6 @@ footer {
         justify-content: center;
         margin-top: 20px;
     }
-    
     .day {
         background-color: $secondary_bg;
         border: 1px solid black;
