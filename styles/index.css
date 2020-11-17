@@ -68,8 +68,9 @@ footer {
 .conditions {
   font-size: 125%;
   color: white;
-  text-align: left;
-  height: 255px;
+  text-align: center;
+  height: 155px;
+  padding-top: 25px;
 }
 
 .smallfont {
@@ -101,7 +102,7 @@ footer {
   text-align: center;
 }
 
-.corner, .default {
+.corner {
   top: 3px;
   left: 5px;
   height: 27px;
@@ -120,20 +121,41 @@ footer {
 }
 
 .default {
-  width: 200px;
+  width: 150px;
   height: 7%;
+  top: 3px;
+  left: 5px;
+  z-index: 10;
+  border-radius: 10px;
+  border: none;
+  background: white;
+  text-align: center;
 }
 
 @media (max-width: 800px) {
   .temp {
-    font-size: 150%;
+    font-size: 200%;
   }
   .default {
-    width: 70%;
+    width: 40%;
     font-size: 40%;
   }
   .location, .conditions {
     width: 100%;
+  }
+  .round {
+    width: 50%;
+    border-radius: 15px;
+    border: 1px #000 solid;
+    padding: 5px 5px 5px 25px;
+    position: center;
+    top: 0;
+    left: 0;
+    text-align: center;
+    float: left;
+  }
+  .corner {
+    float: left;
   }
 }
 /*# sourceMappingURL=index.css.map */

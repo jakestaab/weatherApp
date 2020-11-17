@@ -48,10 +48,10 @@ const getWeather = async () => {
     let conditions = weatherData.weather[0].main;
     let temp = weatherData.main.temp;
     let wind = weatherData.wind.speed;
+    let direction = weatherData.wind.deg;
     let humidity = weatherData.main.humidity;
     let visibility = (weatherData.visibility / 1000);
     let pressure = (weatherData.main.pressure / 33.86);
-    let direction = weatherData.wind.deg;
 
     document.getElementById('icon').src = icon;
     document.getElementById('conditions').innerHTML = conditions;
