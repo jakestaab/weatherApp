@@ -71,10 +71,10 @@ const getWeather = async () => {
     document.getElementById('conditions').innerHTML = conditions;
     document.getElementById('temp').innerHTML = Math.round(temp) + "°";
     document.getElementById('wind').innerHTML = Math.round(wind) + "mph";
+    document.getElementById('direction').innerHTML = windConversion(direction);
     document.getElementById('humidity').innerHTML = humidity + "%";
     document.getElementById('visibility').innerHTML = visibility;
     document.getElementById('pressure').innerHTML = pressure.toFixed(2) + "\"Hg";
-    document.getElementById('direction').innerHTML = windConversion(direction);
     document.getElementById('shownlocation').innerHTML = capitalizeLocation(defaultLocation);
 
     //five-day
@@ -85,6 +85,14 @@ const getWeather = async () => {
     let icon5 = iconURL(dailyData.daily[5].weather[0].icon);
     let high1 = dailyData.daily[1].temp.max;
     let low1 = dailyData.daily[1].temp.min;
+    let high2 = dailyData.daily[2].temp.max;
+    let low2 = dailyData.daily[2].temp.min;
+    let high3 = dailyData.daily[3].temp.max;
+    let low3 = dailyData.daily[3].temp.min;
+    let high4 = dailyData.daily[4].temp.max;
+    let low4 = dailyData.daily[4].temp.min;
+    let high5 = dailyData.daily[5].temp.max;
+    let low5 = dailyData.daily[5].temp.min;
     document.getElementById('day1').innerHTML = week[today];
     document.getElementById('day2').innerHTML = week[today+1];
     document.getElementById('day3').innerHTML = week[today+2];
@@ -97,12 +105,18 @@ const getWeather = async () => {
     document.getElementById('icon5').src = icon5;
     document.getElementById('high1').innerHTML = Math.round(high1) + "°";
     document.getElementById('low1').innerHTML = Math.round(low1) + "°";
+    document.getElementById('high2').innerHTML = Math.round(high2) + "°";
+    document.getElementById('low2').innerHTML = Math.round(low2) + "°";
+    document.getElementById('high3').innerHTML = Math.round(high3) + "°";
+    document.getElementById('low3').innerHTML = Math.round(low3) + "°";
+    document.getElementById('high4').innerHTML = Math.round(high4) + "°";
+    document.getElementById('low4').innerHTML = Math.round(low4) + "°";
+    document.getElementById('high5').innerHTML = Math.round(high5) + "°";
+    document.getElementById('low5').innerHTML = Math.round(low5) + "°";
 }
 getWeather();
 
-let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
 let d = new Date();
-var today = d.getDay();
-
-
-console.log(week[today ]);
+let today = d.getDay();
