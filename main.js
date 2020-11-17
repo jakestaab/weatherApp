@@ -20,7 +20,8 @@ const iconURL = (code) => {
 const dailyURL = (lat, lon) => {
     let key = WEATHER_API_KEY();
     return "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-            lat + "&lon=" + lon + "&exclude=currently,minutely,hourly,alerts&appid=" +
+            lat + "&lon=" + lon + "&exclude=currently,minutely,hourly,alerts" +
+            "&units=imperial&appid=" +
             key;
 }
 
@@ -57,8 +58,6 @@ const getWeather = async () => {
     //five-day
     const daily = await fetch(dailyURL(weatherData.coord.lat, weatherData.coord.lon));
     const dailyData = await daily.json();
-    console.log(dailyData);
-    console.log(daily);
 
     //today
     let conditions = weatherData.weather[0].main;
@@ -79,15 +78,31 @@ const getWeather = async () => {
     document.getElementById('shownlocation').innerHTML = capitalizeLocation(defaultLocation);
 
     //five-day
-    let icon1 = iconURL(dailyData.daily[0].weather[0].icon);
-    let icon2 = iconURL(dailyData.daily[1].weather[0].icon);
-    let icon3 = iconURL(dailyData.daily[2].weather[0].icon);
-    let icon4 = iconURL(dailyData.daily[3].weather[0].icon);
-    let icon5 = iconURL(dailyData.daily[4].weather[0].icon);
+    let icon1 = iconURL(dailyData.daily[1].weather[0].icon);
+    let icon2 = iconURL(dailyData.daily[2].weather[0].icon);
+    let icon3 = iconURL(dailyData.daily[3].weather[0].icon);
+    let icon4 = iconURL(dailyData.daily[4].weather[0].icon);
+    let icon5 = iconURL(dailyData.daily[5].weather[0].icon);
+    let high1 = dailyData.daily[1].temp.max;
+    let low1 = dailyData.daily[1].temp.min;
+    document.getElementById('day1').innerHTML = week[today];
+    document.getElementById('day2').innerHTML = week[today+1];
+    document.getElementById('day3').innerHTML = week[today+2];
+    document.getElementById('day4').innerHTML = week[today+3];
+    document.getElementById('day5').innerHTML = week[today+4];
     document.getElementById('icon1').src = icon1;
     document.getElementById('icon2').src = icon2;
     document.getElementById('icon3').src = icon3;
     document.getElementById('icon4').src = icon4;
     document.getElementById('icon5').src = icon5;
+    document.getElementById('high1').innerHTML = Math.round(high1) + "°";
+    document.getElementById('low1').innerHTML = Math.round(low1) + "°";
 }
 getWeather();
+
+let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+let d = new Date();
+var today = d.getDay();
+
+
+console.log(week[today ]);
