@@ -2,11 +2,11 @@ import { WEATHER_API_KEY } from './apikey.js';
 import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
+let key = "e6829fea390bfd66e1381953b9327c55";
 
 //accepts parameter of a location; returns the API URL with that location
 const weatherURL = (location) => {
     //WEATHER_API_KEY is a function that returns my API key
-    let key = WEATHER_API_KEY();
     return "http://api.openweathermap.org/data/2.5/weather?q=" +
                      location + "&units=imperial&appid=" + key;
 }
@@ -18,7 +18,6 @@ const iconURL = (code) => {
 }
 
 const dailyURL = (lat, lon) => {
-    let key = WEATHER_API_KEY();
     return "https://api.openweathermap.org/data/2.5/onecall?lat=" +
             lat + "&lon=" + lon + "&exclude=currently,minutely,hourly,alerts" +
             "&units=imperial&appid=" +
