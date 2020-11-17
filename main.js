@@ -17,6 +17,13 @@ const iconURL = (code) => {
     return "http://openweathermap.org/img/wn/" + insert + "@2x.png";
 }
 
+const dailyURL = (lat, lon) => {
+    let key = WEATHER_API_KEY();
+    return "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+            lat + "&lon=" + lon + "&exclude=currently,minutely,hourly,alerts&appid=" +
+            key;
+}
+
 //assigns to defaultLocation the city data to be displayed on page
 //first checks localStorage, else defaults to Lawrence, Kansas
 //or alternatively uses what has just been searched for
@@ -42,9 +49,18 @@ setLocationButton.addEventListener("click", (event) => {
 
 //retrieves weather API data and inputs object property values into HTML
 const getWeather = async () => {
+    //today
     const data = await fetch(weatherURL(defaultLocation));
     const weatherData = await data.json();
     let icon = iconURL(weatherData.weather[0].icon);
+
+    //five-day
+    const daily = await fetch(dailyURL(weatherData.coord.lat, weatherData.coord.lon));
+    const dailyData = await daily.json();
+    console.log(dailyData);
+    console.log(daily);
+
+    //today
     let conditions = weatherData.weather[0].main;
     let temp = weatherData.main.temp;
     let wind = weatherData.wind.speed;
@@ -52,7 +68,6 @@ const getWeather = async () => {
     let humidity = weatherData.main.humidity;
     let visibility = (weatherData.visibility / 1000);
     let pressure = (weatherData.main.pressure / 33.86);
-
     document.getElementById('icon').src = icon;
     document.getElementById('conditions').innerHTML = conditions;
     document.getElementById('temp').innerHTML = Math.round(temp) + "°";
@@ -62,5 +77,17 @@ const getWeather = async () => {
     document.getElementById('pressure').innerHTML = pressure.toFixed(2) + "\"Hg";
     document.getElementById('direction').innerHTML = windConversion(direction);
     document.getElementById('shownlocation').innerHTML = capitalizeLocation(defaultLocation);
+
+    //five-day
+    let icon1 = iconURL(dailyData.daily[0].weather[0].icon);
+    let icon2 = iconURL(dailyData.daily[1].weather[0].icon);
+    let icon3 = iconURL(dailyData.daily[2].weather[0].icon);
+    let icon4 = iconURL(dailyData.daily[3].weather[0].icon);
+    let icon5 = iconURL(dailyData.daily[4].weather[0].icon);
+    document.getElementById('icon1').src = icon1;
+    document.getElementById('icon2').src = icon2;
+    document.getElementById('icon3').src = icon3;
+    document.getElementById('icon4').src = icon4;
+    document.getElementById('icon5').src = icon5;
 }
 getWeather();

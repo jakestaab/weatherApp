@@ -73,6 +73,28 @@ footer {
   padding-top: 25px;
 }
 
+.days {
+  background-color: #140e4e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 20px;
+}
+
+.day {
+  background-color: #3a227c;
+  border: 1px solid black;
+  border-radius: 10px 10px 10px 10px;
+  -webkit-box-shadow: 3px 5px 5px #47474b;
+          box-shadow: 3px 5px 5px #47474b;
+  width: 150px;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
 .smallfont {
   background-color: #3a227c;
   font-family: #a0a0a0;
