@@ -6,14 +6,14 @@ let key = "e6829fea390bfd66e1381953b9327c55";
 //accepts parameter of a location; returns the API URL with that location
 const weatherURL = (location) => {
     //WEATHER_API_KEY is a function that returns my API key
-    return "http://api.openweathermap.org/data/2.5/weather?q=" +
+    return "https://api.openweathermap.org/data/2.5/weather?q=" +
                      location + "&units=imperial&appid=" + key;
 }
 
 //accepts parameter of API icon code; returns API URL for that code
 const iconURL = (code) => {
     let insert = String(code);
-    return "http://openweathermap.org/img/wn/" + insert + "@2x.png";
+    return "https://openweathermap.org/img/wn/" + insert + "@2x.png";
 }
 
 const dailyURL = (lat, lon) => {
