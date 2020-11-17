@@ -199,4 +199,23 @@ footer {
     .corner {
         float: left;
     }
+
+    .days {
+        background-color: $main_bg;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+    }
+    
+    .day {
+        background-color: $secondary_bg;
+        border: 1px solid black;
+        border-radius: 10px 10px 10px 10px;
+        box-shadow: 3px 5px 5px rgb(71, 71, 75);
+        width: 150px;
+        margin-left: 3%;
+        margin-right: 3%;
+        margin-top: 20px;
+    }
 }

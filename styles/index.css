@@ -187,5 +187,28 @@ footer {
   .corner {
     float: left;
   }
+  .days {
+    background-color: #140e4e;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 20px;
+  }
+  .day {
+    background-color: #3a227c;
+    border: 1px solid black;
+    border-radius: 10px 10px 10px 10px;
+    -webkit-box-shadow: 3px 5px 5px #47474b;
+            box-shadow: 3px 5px 5px #47474b;
+    width: 150px;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 20px;
+  }
 }
 /*# sourceMappingURL=index.css.map */
