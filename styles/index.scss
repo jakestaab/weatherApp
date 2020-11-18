@@ -174,7 +174,7 @@ footer {
         float: left;
     }
     .temp {
-        font-size: 225%;
+        font-size: 265%;
     }
     .default {
         width: 60%;
@@ -182,7 +182,9 @@ footer {
     }
     .location {
         width: 100%;
-        padding-bottom: 6px;
+    }
+    .conditions {
+        justify-content: center;
     }
     .highlow {
         background-color: $secondary_bg;
