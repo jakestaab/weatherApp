@@ -40,14 +40,6 @@ footer {
           justify-content: center;
 }
 
-.unit {
-  background-color: #3a227c;
-  font-family: Helvetica;
-  font-size: 100%;
-  color: #b8aeae96;
-  text-align: left;
-}
-
 .location, .conditions {
   background-color: #3a227c;
   font-family: Helvetica;
@@ -73,6 +65,14 @@ footer {
   text-align: center;
   height: 155px;
   padding-top: 25px;
+}
+
+.unit {
+  background-color: #3a227c;
+  font-family: Helvetica;
+  font-size: 100%;
+  color: #b8aeae96;
+  text-align: left;
 }
 
 .days {

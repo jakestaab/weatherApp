@@ -15,29 +15,24 @@ header {
     padding-left: 20%;
     padding-right: 20%;
 }
-
 .logo {
     @extend header;
 }
-
 h1 {
     padding: 15px;
 }
-
 body {
     background-color: $main_bg;
     font-family: $main_fnt_clr;
     color: $main_fnt_clr;
     text-align: center;
 }
-
 footer {
     background-color: $main_bg;
     font-family: $main_fnt_clr;
     color: $main_fnt_clr;
     text-align: center;
 }
-
 .default_weather {
     background-color: $main_bg;
     font-family: $main_fnt;
@@ -49,15 +44,6 @@ footer {
     margin-right: 20%;
     justify-content: center;
 }
-
-.unit {
-    background-color: $secondary_bg;
-    font-family: $main_fnt;
-    font-size: 100%;
-    color: $unit_fnt_clr;
-    text-align: left;
-}
-
 .location {
     background-color: $secondary_bg;
     font-family: $main_fnt;
@@ -75,7 +61,6 @@ footer {
     float: center;
     padding: 10px;
 }
-
 .conditions {
     @extend .location;
     font-size: 125%;
@@ -84,14 +69,19 @@ footer {
     height: 155px;
     padding-top: 25px;
 }
-
+.unit {
+    background-color: $secondary_bg;
+    font-family: $main_fnt;
+    font-size: 100%;
+    color: $unit_fnt_clr;
+    text-align: left;
+}
 .days {
     background-color: $main_bg;
     display: flex;
     justify-content: center;
     margin-top: 20px;
 }
-
 .day {
     background-color: $secondary_bg;
     border: 1px solid black;
@@ -101,7 +91,6 @@ footer {
     margin-left: 3%;
     margin-right: 3%;
 }
-
 .smallfont {
     background-color: $secondary_bg;
     font-family: $main_fnt_clr;
@@ -141,7 +130,6 @@ footer {
     background: white;
     text-align: center;
 }
-
 .default {
     width: 150px;
     height: 7%;
@@ -153,7 +141,6 @@ footer {
     background: white;
     text-align: center;
 }
-
 @media (max-width: 800px) {
     header {
         text-align: center;
