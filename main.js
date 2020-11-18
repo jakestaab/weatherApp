@@ -94,6 +94,11 @@ const getWeather = async () => {
     let icon3 = iconURL(dailyData.daily[3].weather[0].icon);
     let icon4 = iconURL(dailyData.daily[4].weather[0].icon);
     let icon5 = iconURL(dailyData.daily[5].weather[0].icon);
+    let sky1 = dailyData.daily[1].weather[0].main;
+    let sky2 = dailyData.daily[2].weather[0].main;
+    let sky3 = dailyData.daily[3].weather[0].main;
+    let sky4 = dailyData.daily[4].weather[0].main;
+    let sky5 = dailyData.daily[5].weather[0].main;
     let high1 = dailyData.daily[1].temp.max;
     let low1 = dailyData.daily[1].temp.min;
     let high2 = dailyData.daily[2].temp.max;
@@ -104,6 +109,7 @@ const getWeather = async () => {
     let low4 = dailyData.daily[4].temp.min;
     let high5 = dailyData.daily[5].temp.max;
     let low5 = dailyData.daily[5].temp.min;
+    
     document.getElementById('day1').innerHTML = week[today];
     document.getElementById('day2').innerHTML = week[today+1];
     document.getElementById('day3').innerHTML = week[today+2];
@@ -114,6 +120,11 @@ const getWeather = async () => {
     document.getElementById('icon3').src = icon3;
     document.getElementById('icon4').src = icon4;
     document.getElementById('icon5').src = icon5;
+    document.getElementById('sky1').innerHTML = sky1;
+    document.getElementById('sky2').innerHTML = sky2;
+    document.getElementById('sky3').innerHTML = sky3;
+    document.getElementById('sky4').innerHTML = sky4;
+    document.getElementById('sky5').innerHTML = sky5;
     document.getElementById('high1').innerHTML = Math.round(high1) + "°";
     document.getElementById('low1').innerHTML = Math.round(low1) + "°";
     document.getElementById('high2').innerHTML = Math.round(high2) + "°";
