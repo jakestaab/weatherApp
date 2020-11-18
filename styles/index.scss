@@ -178,6 +178,11 @@ footer {
     .location {
         width: 100%;
     }
+    .today {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
     .days {
         background-color: $main_bg;
         display: flex;

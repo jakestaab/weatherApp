@@ -195,6 +195,16 @@ footer {
   .location, .conditions {
     width: 100%;
   }
+  .today {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
   .days {
     background-color: #140e4e;
     display: -webkit-box;

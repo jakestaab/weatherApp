@@ -8,7 +8,7 @@
     </head>
     <body>
         <header>
-            <h1>Weather Or Not</h1>
+            <h1>Weather By Jake</h1>
             <div class="search">
                 <input type="text" class="round" id="searchedLocation"
                 placeholder="Search cities" tabindex="0"/>
@@ -16,22 +16,25 @@
                 aria-label="search city locations for weather" tabindex="0">Search</button>
             </div><br>
         </header>
+
         <main class="default_weather">
-            <div class="location">
-                <span id="shownlocation" tabindex="0"></span><br>
-                <button id="setlocation" title="set default location" class="default"
-                aria-label="set current location as default"
-                tabindex="0">set default location</button><br>
-                <img id="icon" src="">
-                <div id="temp" class="temp" tabindex="0"></div>
-            </div>
-            <div class="conditions">
-                <span class="unit" tabindex="0">Sky Condition: </span><span id="conditions" tabindex="0"></span><br>
-                <span class="unit" tabindex="0">Wind: </span><span id="wind" tabindex="0"></span><br>
-                <span class="unit" tabindex="0">Wind Direction: </span><span id="direction" tabindex="0"></span><br>
-                <span class="unit" tabindex="0">Humidity: </span><span id="humidity" tabindex="0"></span><br>
-                <span class="unit" tabindex="0">Visibility: </span><span id="visibility" tabindex="0"></span><br>
-                <span class="unit" tabindex="0">Pressure: </span><span id="pressure" tabindex="0"></span>
+            <div class="today">
+                <div class="location">
+                    <span id="shownlocation" tabindex="0"></span><br>
+                    <button id="setlocation" title="set default location" class="default"
+                    aria-label="set current location as default"
+                    tabindex="0">set default location</button><br>
+                    <img id="icon" src="">
+                    <div id="temp" class="temp" tabindex="0"></div>
+                </div>
+                <div class="conditions">
+                    <span class="unit" tabindex="0">Sky Condition: </span><span id="conditions" tabindex="0"></span><br>
+                    <span class="unit" tabindex="0">Wind: </span><span id="wind" tabindex="0"></span><br>
+                    <span class="unit" tabindex="0">Wind Direction: </span><span id="direction" tabindex="0"></span><br>
+                    <span class="unit" tabindex="0">Humidity: </span><span id="humidity" tabindex="0"></span><br>
+                    <span class="unit" tabindex="0">Visibility: </span><span id="visibility" tabindex="0"></span><br>
+                    <span class="unit" tabindex="0">Pressure: </span><span id="pressure" tabindex="0"></span>
+                </div>
             </div>
 
             <div class="days">
@@ -67,8 +70,10 @@
                 </div>
             </div>
         </main>
+
         <footer>
         </footer>
+        
     </body>
     <script type="module" src="main.js"></script>
 </html>
