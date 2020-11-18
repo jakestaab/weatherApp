@@ -54,7 +54,7 @@ footer {
     border-radius: 10px 10px 10px 10px;
     box-shadow: 3px 5px 5px rgb(71, 71, 75);
     width: 50%;
-    height: 255px;
+    height: 295px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
@@ -66,8 +66,13 @@ footer {
     font-size: 125%;
     color: white;
     text-align: center;
-    height: 155px;
+    height: 130px;
     padding-top: 25px;
+}
+.highlow {
+    background-color: $secondary_bg;
+    font-size: 80%;
+    padding-top: 7px;
 }
 .unit {
     background-color: $secondary_bg;
@@ -177,6 +182,12 @@ footer {
     }
     .location {
         width: 100%;
+        height: 150%;
+    }
+    .highlow {
+        background-color: $secondary_bg;
+        font-size: 75%;
+        padding-top: 5px;
     }
     .today {
         display: flex;

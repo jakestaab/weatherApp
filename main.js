@@ -2,6 +2,10 @@ import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
 let key = "e6829fea390bfd66e1381953b9327c55";
+let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
+            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]; // <--see what I did there?
+let d = new Date();
+let today = d.getDay();
 
 //accepts parameter of a location; returns the API URL with that location
 const weatherURL = (location) => {
@@ -16,6 +20,7 @@ const iconURL = (code) => {
     return "https://openweathermap.org/img/wn/" + insert + "@2x.png";
 }
 
+//accepts lat and long coords, returns API URL for daily weather at that location
 const dailyURL = (lat, lon) => {
     return "https://api.openweathermap.org/data/2.5/onecall?lat=" +
             lat + "&lon=" + lon + "&exclude=currently,minutely,hourly,alerts" +
@@ -24,8 +29,8 @@ const dailyURL = (lat, lon) => {
 }
 
 //assigns to defaultLocation the city data to be displayed on page
-//first checks localStorage, else defaults to Lawrence, Kansas
-//or alternatively uses what has just been searched for
+//first checks localStorage, else defaults to Lawrence, Kansas;
+//otherwise uses what has just been searched for
 const locationCheck = () => {
     if(localStorage.getItem("userSetLocation")) {
         defaultLocation = JSON.parse(localStorage.getItem("userSetLocation"));
@@ -33,6 +38,7 @@ const locationCheck = () => {
         defaultLocation = "Lawrence, Kansas";
     }
     const locationButton = document.getElementById("search");
+
     locationButton.addEventListener("click", (event) => {
     defaultLocation = document.getElementById("searchedLocation").value;
     getWeather(); //if search button clicked, getWeather needs to be called here
@@ -52,6 +58,9 @@ const getWeather = async () => {
     const data = await fetch(weatherURL(defaultLocation));
     const weatherData = await data.json();
     let icon = iconURL(weatherData.weather[0].icon);
+    console.log(data);
+    console.log(weatherData.coord.lat);
+    console.log(weatherData.coord.lon);
 
     //five-day
     const daily = await fetch(dailyURL(weatherData.coord.lat, weatherData.coord.lon));
@@ -60,19 +69,23 @@ const getWeather = async () => {
     //today
     let conditions = weatherData.weather[0].main;
     let temp = weatherData.main.temp;
+    let todayhigh = weatherData.main.temp_max;
+    let todaylow = weatherData.main.temp_min;
     let wind = weatherData.wind.speed;
     let direction = weatherData.wind.deg;
     let humidity = weatherData.main.humidity;
-    let visibility = (weatherData.visibility / 1000);
     let pressure = (weatherData.main.pressure / 33.86);
+    let feelslike = (weatherData.main.feels_like);
     document.getElementById('icon').src = icon;
+    document.getElementById('feelslike').innerHTML = Math.round(feelslike) + "°";
     document.getElementById('conditions').innerHTML = conditions;
     document.getElementById('temp').innerHTML = Math.round(temp) + "°";
-    document.getElementById('wind').innerHTML = Math.round(wind) + "mph";
+    document.getElementById('todayhigh').innerHTML = Math.round(todayhigh) + "°";
+    document.getElementById('todaylow').innerHTML = Math.round(todaylow) + "°";
+    document.getElementById('wind').innerHTML = Math.round(wind);
     document.getElementById('direction').innerHTML = windConversion(direction);
     document.getElementById('humidity').innerHTML = humidity + "%";
-    document.getElementById('visibility').innerHTML = visibility;
-    document.getElementById('pressure').innerHTML = pressure.toFixed(2) + "\"Hg";
+    document.getElementById('pressure').innerHTML = pressure.toFixed(2);
     document.getElementById('shownlocation').innerHTML = capitalizeLocation(defaultLocation);
 
     //five-day
@@ -113,8 +126,3 @@ const getWeather = async () => {
     document.getElementById('low5').innerHTML = Math.round(low5) + "°";
 }
 getWeather();
-
-let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-let d = new Date();
-let today = d.getDay();
