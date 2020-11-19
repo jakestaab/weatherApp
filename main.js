@@ -1,7 +1,7 @@
 import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
-let key = "e6829fea390bfd66e1381953b9327c55";
+let key = "e6829fea390bfd66e1381953b9327c55"; //openweathermap.org API key
 let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
             "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]; // <--see what I did there?
 let d = new Date();

@@ -23,15 +23,13 @@ h1 {
 }
 body {
     background-color: $main_bg;
-    font-family: $main_fnt_clr;
-    color: $main_fnt_clr;
+    font-family: $main_fnt;
+    color: white;
     text-align: center;
 }
 footer {
-    background-color: $main_bg;
-    font-family: $main_fnt_clr;
-    color: $main_fnt_clr;
-    text-align: center;
+    @extend body;
+    padding-top: 25%;
 }
 .default_weather {
     background-color: $main_bg;
