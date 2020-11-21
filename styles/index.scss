@@ -30,6 +30,9 @@ body {
 footer {
     @extend body;
     padding-top: 25%;
+    font-family: $main_fnt;
+    font-size: 75%;
+    color: $unit_fnt_clr;
 }
 .default_weather {
     background-color: $main_bg;
@@ -114,7 +117,7 @@ footer {
 }
 .round {
     width: 65%;
-    border-radius: 15px;
+    border-radius: 10px;
     border: 1px #000 solid;
     padding: 5px 5px 5px 25px;
     position: center;
