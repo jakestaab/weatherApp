@@ -9,26 +9,23 @@ let today = d.getDay();
 
 //accepts parameter of a location; returns the API URL with that location
 const weatherURL = (location) => {
-    //WEATHER_API_KEY is a function that returns my API key
     return "https://api.openweathermap.org/data/2.5/weather?q=" +
                      location + "&units=imperial&appid=" + key;
 }
 
-//accepts parameter of API icon code; returns API URL for that code
+//accepts parameter of API icon code; returns API URL for that icon code
 const iconURL = (code) => {
-    let insert = String(code);
-    return "https://openweathermap.org/img/wn/" + insert + "@2x.png";
+    return "https://openweathermap.org/img/wn/" + String(code) + "@2x.png";
 }
 
 //accepts lat and long coords, returns API URL for daily weather at that location
 const dailyURL = (lat, lon) => {
     return "https://api.openweathermap.org/data/2.5/onecall?lat=" +
             lat + "&lon=" + lon + "&exclude=currently,minutely,hourly,alerts" +
-            "&units=imperial&appid=" +
-            key;
+            "&units=imperial&appid=" + key;
 }
 
-//assigns to defaultLocation the city data to be displayed on page
+//assigns to defaultLocation the city data to be displayed on page.
 //first checks localStorage, else defaults to Lawrence, Kansas;
 //otherwise uses what has just been searched for
 const locationCheck = () => {
@@ -38,7 +35,6 @@ const locationCheck = () => {
         defaultLocation = "Lawrence, Kansas";
     }
     const locationButton = document.getElementById("search");
-
     locationButton.addEventListener("click", (event) => {
     defaultLocation = document.getElementById("searchedLocation").value;
     getWeather(); //if search button clicked, getWeather needs to be called here
@@ -52,21 +48,19 @@ setLocationButton.addEventListener("click", (event) => {
     localStorage.setItem("userSetLocation", JSON.stringify(defaultLocation));
 })
 
-//retrieves weather API data and inputs object property values into HTML
+//fetches weather API data and inputs object property values into HTML
 const getWeather = async () => {
     //today
     const data = await fetch(weatherURL(defaultLocation));
     const weatherData = await data.json();
-    let icon = iconURL(weatherData.weather[0].icon);
-    console.log(data);
-    console.log(weatherData.coord.lat);
-    console.log(weatherData.coord.lon);
 
     //five-day
     const daily = await fetch(dailyURL(weatherData.coord.lat, weatherData.coord.lon));
     const dailyData = await daily.json();
 
     //today
+    let icon = iconURL(weatherData.weather[0].icon);
+    let feelslike = (weatherData.main.feels_like);
     let conditions = weatherData.weather[0].main;
     let temp = weatherData.main.temp;
     let todayhigh = weatherData.main.temp_max;
@@ -75,7 +69,6 @@ const getWeather = async () => {
     let direction = weatherData.wind.deg;
     let humidity = weatherData.main.humidity;
     let pressure = (weatherData.main.pressure / 33.86);
-    let feelslike = (weatherData.main.feels_like);
     document.getElementById('icon').src = icon;
     document.getElementById('feelslike').innerHTML = Math.round(feelslike) + "°";
     document.getElementById('conditions').innerHTML = conditions;
@@ -109,7 +102,6 @@ const getWeather = async () => {
     let low4 = dailyData.daily[4].temp.min;
     let high5 = dailyData.daily[5].temp.max;
     let low5 = dailyData.daily[5].temp.min;
-    
     document.getElementById('day1').innerHTML = week[today];
     document.getElementById('day2').innerHTML = week[today+1];
     document.getElementById('day3').innerHTML = week[today+2];
