@@ -5,7 +5,6 @@ $main_fnt: Helvetica;
 $main_fnt_clr: #a0a0a0;
 $unit_fnt_clr: #b8aeae96;
 
-
 header { 
     background-color: $secondary_bg;
     font-family: $main_fnt;
@@ -14,6 +13,7 @@ header {
     text-align: left;
     padding-left: 20%;
     padding-right: 20%;
+    border-radius: 10px 10px 10px 10px;
 }
 .logo {
     @extend header;
@@ -52,7 +52,7 @@ footer {
     border-radius: 10px 10px 10px 10px;
     box-shadow: 3px 5px 5px rgb(71, 71, 75);
     width: 50%;
-    height: 295px;
+    height: 300px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
