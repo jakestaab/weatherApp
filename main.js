@@ -53,6 +53,7 @@ const getWeather = async () => {
     //today
     const data = await fetch(weatherURL(defaultLocation));
     const weatherData = await data.json();
+    console.log(data);
 
     //five-day
     const daily = await fetch(dailyURL(weatherData.coord.lat, weatherData.coord.lon));
@@ -129,3 +130,23 @@ const getWeather = async () => {
     document.getElementById('low5').innerHTML = Math.round(low5) + "°";
 }
 getWeather();
+
+let latitude;
+let longitude;
+
+function showLocation(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+
+
+const getURL = (lat, lon) => {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showLocation);
+    }
+    let test1 = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
+    "&lon=" + lon + "&appid=" + key;
+    document.getElementById('test').innerHTML = test1;
+}
+
+getURL(latitude, longitude);

@@ -140,9 +140,14 @@ footer {
     left: 5px;
     z-index: 10;
     border-radius: 10px;
-    border: none;
-    background: white;
+    border: 1px solid white;
+    background: $secondary_bg;
     text-align: center;
+    color: white;
+}
+.default:hover {
+    color: $secondary_bg;
+    background: white;
 }
 @media (max-width: 800px) {
     header {

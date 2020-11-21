@@ -155,9 +155,15 @@ footer {
   left: 5px;
   z-index: 10;
   border-radius: 10px;
-  border: none;
-  background: white;
+  border: 1px solid white;
+  background: #3a227c;
   text-align: center;
+  color: white;
+}
+
+.default:hover {
+  color: #3a227c;
+  background: white;
 }
 
 @media (max-width: 800px) {
