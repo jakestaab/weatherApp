@@ -149,4 +149,8 @@ const getURL = (lat, lon) => {
     document.getElementById('test').innerHTML = test1;
 }
 
+navigator.geolocation.getCurrentPosition((position) => {
+    getURL(position.coords.latitude, position.coords.longitude);
+  });
+
 getURL(latitude, longitude);
