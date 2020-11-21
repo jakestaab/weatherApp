@@ -9,6 +9,7 @@ let today = d.getDay();
 
 let latitude;
 let longitude;
+let autoLocation;
 
 function showLocation(position) {
     latitude = position.coords.latitude;
@@ -26,16 +27,15 @@ const getURL = async (lat, lon) => {
     
     let test1 = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
     "&lon=" + lon + "&appid=" + key;
-    document.getElementById('test').innerHTML = test1;
 
     const test2 = await fetch(test1);
     const test3 = await test2.json();
 
     console.log(test2);
     console.log(test3.name);
-    defaultLocation = test3.name;
+    autoLocation = test3.name;
     localStorage.setItem("geoLocale", JSON.stringify(test3.name));
-}
+
 
 //accepts parameter of a location; returns the API URL with that location
 const weatherURL = (location) => {
@@ -62,7 +62,7 @@ const assignLocation = () => {
     if(localStorage.getItem("userSetLocation")) {
         defaultLocation = JSON.parse(localStorage.getItem("userSetLocation"));
     } else {
-        defaultLocation = JSON.parse(localStorage.getItem("geoLocale"));
+        defaultLocation = autoLocation;
     }
     const locationButton = document.getElementById("search");
     locationButton.addEventListener("click", (event) => {
@@ -160,3 +160,5 @@ const getWeather = async () => {
     document.getElementById('low5').innerHTML = Math.round(low5) + "°";
 }
 getWeather();
+
+}
