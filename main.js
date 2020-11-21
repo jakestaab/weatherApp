@@ -7,6 +7,36 @@ let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", 
 let d = new Date();
 let today = d.getDay();
 
+let latitude;
+let longitude;
+
+function showLocation(position) {
+    latitude = position.coords.latitude;
+    longitude = position.coords.longitude;
+}
+
+navigator.geolocation.getCurrentPosition((position) => {
+    getURL(position.coords.latitude, position.coords.longitude);
+  });
+
+const getURL = async (lat, lon) => {
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showLocation);
+    }
+    
+    let test1 = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
+    "&lon=" + lon + "&appid=" + key;
+    document.getElementById('test').innerHTML = test1;
+
+    const test2 = await fetch(test1);
+    const test3 = await test2.json();
+
+    console.log(test2);
+    console.log(test3.name);
+    defaultLocation = test3.name;
+    localStorage.setItem("geoLocale", JSON.stringify(test3.name));
+}
+
 //accepts parameter of a location; returns the API URL with that location
 const weatherURL = (location) => {
     return "https://api.openweathermap.org/data/2.5/weather?q=" +
@@ -28,11 +58,11 @@ const dailyURL = (lat, lon) => {
 //assigns to defaultLocation the city data to be displayed on page.
 //first checks localStorage, else defaults to Lawrence, Kansas;
 //otherwise uses what has just been searched for
-const locationCheck = () => {
+const assignLocation = () => {
     if(localStorage.getItem("userSetLocation")) {
         defaultLocation = JSON.parse(localStorage.getItem("userSetLocation"));
     } else {
-        defaultLocation = "Lawrence, Kansas";
+        defaultLocation = JSON.parse(localStorage.getItem("geoLocale"));
     }
     const locationButton = document.getElementById("search");
     locationButton.addEventListener("click", (event) => {
@@ -40,7 +70,7 @@ const locationCheck = () => {
     getWeather(); //if search button clicked, getWeather needs to be called here
 }, false);
 }
-locationCheck();
+assignLocation();
 
 //sets default location in local storage when user clicks setlocation button
 const setLocationButton = document.getElementById("setlocation");
@@ -48,12 +78,12 @@ setLocationButton.addEventListener("click", (event) => {
     localStorage.setItem("userSetLocation", JSON.stringify(defaultLocation));
 })
 
+
 //fetches weather API data and inputs object property values into HTML
 const getWeather = async () => {
     //today
     const data = await fetch(weatherURL(defaultLocation));
     const weatherData = await data.json();
-    console.log(data);
 
     //five-day
     const daily = await fetch(dailyURL(weatherData.coord.lat, weatherData.coord.lon));
@@ -130,27 +160,3 @@ const getWeather = async () => {
     document.getElementById('low5').innerHTML = Math.round(low5) + "°";
 }
 getWeather();
-
-let latitude;
-let longitude;
-
-function showLocation(position) {
-    latitude = position.coords.latitude;
-    longitude = position.coords.longitude;
-}
-
-
-const getURL = (lat, lon) => {
-    if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showLocation);
-    }
-    let test1 = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
-    "&lon=" + lon + "&appid=" + key;
-    document.getElementById('test').innerHTML = test1;
-}
-
-navigator.geolocation.getCurrentPosition((position) => {
-    getURL(position.coords.latitude, position.coords.longitude);
-  });
-
-getURL(latitude, longitude);
