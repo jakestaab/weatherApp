@@ -30,7 +30,7 @@ const getURL = async (lat, lon) => {
     const APIData = await fetch(APILocationURL);
     const APIDataParsed = await APIData.json();
     autoLocation = APIDataParsed.name;
-    localStorage.setItem("geoLocale", JSON.stringify(APIDataParsed.name));
+    //localStorage.setItem("geoLocale", JSON.stringify(APIDataParsed.name));
 
     //accepts parameter of a location; returns the API URL with that location
     const weatherURL = (location) => {
