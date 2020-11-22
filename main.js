@@ -1,5 +1,3 @@
-//test
-
 import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
