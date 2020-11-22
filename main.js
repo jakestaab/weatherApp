@@ -21,9 +21,9 @@ navigator.geolocation.getCurrentPosition((position) => {
 
   function errorHandler(err) {
       if(err.code == 1) {
-        document.getElementById('day1').innerHTML = "Access is denied";
+        alert("Access is denied");
       } else if(err.code == 2) {
-        document.getElementById('day1').innerHTML = "Position Unavailable";
+        alert("Position Unavailable");
       }
   }
 
