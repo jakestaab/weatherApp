@@ -8,7 +8,6 @@ let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", 
             "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]; // <--see what I did there?
 let d = new Date();
 let today = d.getDay();
-
 let latitude;
 let longitude;
 let autoLocation;
@@ -27,6 +26,7 @@ const getURL = async (lat, lon) => {
         navigator.geolocation.getCurrentPosition(showLocation);
     }
     
+    //uses geolocation for lat/lon, then calls API to get city name for those coords
     let APILocationURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
     "&lon=" + lon + "&appid=" + key;
     const APIData = await fetch(APILocationURL);
