@@ -1,3 +1,5 @@
+//test
+
 import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
@@ -27,12 +29,10 @@ const getURL = async (lat, lon) => {
     
     let APILocationURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
     "&lon=" + lon + "&appid=" + key;
-
     const APIData = await fetch(APILocationURL);
     const APIDataParsed = await APIData.json();
     autoLocation = APIDataParsed.name;
     localStorage.setItem("geoLocale", JSON.stringify(APIDataParsed.name));
-
 
     //accepts parameter of a location; returns the API URL with that location
     const weatherURL = (location) => {
