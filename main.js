@@ -58,7 +58,7 @@ const getURL = async (lat, lon) => {
     const assignLocation = () => {
         if(localStorage.getItem("userSetLocation")) {
             defaultLocation = JSON.parse(localStorage.getItem("userSetLocation"));
-        } else if(localStorage.getItem("geoLocale")) {
+        } else if(autoLocation) {
             defaultLocation = autoLocation;
         } else {
             defaultLocation = "Lawrence, Kansas";
