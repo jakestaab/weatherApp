@@ -19,9 +19,17 @@ navigator.geolocation.getCurrentPosition((position) => {
     getURL(position.coords.latitude, position.coords.longitude);
   });
 
+  function errorHandler(err) {
+      if(err.code == 1) {
+        document.getElementById('day1').innerHTML = "Access is denied";
+      } else if(err.code == 2) {
+        document.getElementById('day1').innerHTML = "Position Unavailable";
+      }
+  }
+
 const getURL = async (lat, lon) => {
     if(navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showLocation);
+        navigator.geolocation.getCurrentPosition(showLocation, errorHandler);
     }
     
     //uses geolocation for lat/lon, then calls API to get city name for those coords
