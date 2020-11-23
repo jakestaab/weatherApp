@@ -10,6 +10,18 @@ function getDay(offset = 0) {
 
 let autoLocation;
 
+const locationButton = document.getElementById("search");
+    locationButton.addEventListener("click", (event) => {
+    defaultLocation = document.getElementById("searchedLocation").value;
+    getWeather(); //if search button clicked, getWeather needs to be called here
+}, false);
+
+//sets default location in local storage when user clicks setlocation button
+const setLocationButton = document.getElementById("setlocation");
+    setLocationButton.addEventListener("click", (event) => {
+    localStorage.setItem("userSetLocation", JSON.stringify(defaultLocation));
+})
+
 function showLocation(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
@@ -71,19 +83,10 @@ const getURL = async (lat, lon) => {
         } else {
             defaultLocation = "Lawrence, Kansas";
         }
-        const locationButton = document.getElementById("search");
-        locationButton.addEventListener("click", (event) => {
-        defaultLocation = document.getElementById("searchedLocation").value;
-        getWeather(); //if search button clicked, getWeather needs to be called here
-    }, false);
     }
     assignLocation();
 
-    //sets default location in local storage when user clicks setlocation button
-    const setLocationButton = document.getElementById("setlocation");
-    setLocationButton.addEventListener("click", (event) => {
-        localStorage.setItem("userSetLocation", JSON.stringify(defaultLocation));
-    })
+
 
 
     //fetches weather API data and inputs object property values into HTML
