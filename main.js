@@ -2,12 +2,12 @@ import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
 let key = "e6829fea390bfd66e1381953b9327c55"; //openweathermap.org API key
-let week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday",
-            "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]; // <--see what I did there?
-let d = new Date();
-let today = d.getDay();
-let latitude;
-let longitude;
+
+const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+function getDay(offset = 0) {
+    return week[(new Date().getDay() + offset) % week.length]
+}
+
 let autoLocation;
 
 function showLocation(position) {
@@ -33,7 +33,7 @@ const getURL = async (lat, lon) => {
     }
     
     //uses geolocation for lat/lon, then calls API to get city name for those coords
-    let APILocationURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
+    const APILocationURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
     "&lon=" + lon + "&appid=" + key;
     const APIData = await fetch(APILocationURL);
     const APIDataParsed = await APIData.json();
@@ -121,51 +121,18 @@ const getURL = async (lat, lon) => {
         document.getElementById('shownlocation').innerHTML = capitalizeLocation(defaultLocation);
 
         //five-day
-        let icon1 = iconURL(dailyData.daily[1].weather[0].icon);
-        let icon2 = iconURL(dailyData.daily[2].weather[0].icon);
-        let icon3 = iconURL(dailyData.daily[3].weather[0].icon);
-        let icon4 = iconURL(dailyData.daily[4].weather[0].icon);
-        let icon5 = iconURL(dailyData.daily[5].weather[0].icon);
-        let sky1 = dailyData.daily[1].weather[0].main;
-        let sky2 = dailyData.daily[2].weather[0].main;
-        let sky3 = dailyData.daily[3].weather[0].main;
-        let sky4 = dailyData.daily[4].weather[0].main;
-        let sky5 = dailyData.daily[5].weather[0].main;
-        let high1 = dailyData.daily[1].temp.max;
-        let low1 = dailyData.daily[1].temp.min;
-        let high2 = dailyData.daily[2].temp.max;
-        let low2 = dailyData.daily[2].temp.min;
-        let high3 = dailyData.daily[3].temp.max;
-        let low3 = dailyData.daily[3].temp.min;
-        let high4 = dailyData.daily[4].temp.max;
-        let low4 = dailyData.daily[4].temp.min;
-        let high5 = dailyData.daily[5].temp.max;
-        let low5 = dailyData.daily[5].temp.min;
-        document.getElementById('day1').innerHTML = week[today];
-        document.getElementById('day2').innerHTML = week[today+1];
-        document.getElementById('day3').innerHTML = week[today+2];
-        document.getElementById('day4').innerHTML = week[today+3];
-        document.getElementById('day5').innerHTML = week[today+4];
-        document.getElementById('icon1').src = icon1;
-        document.getElementById('icon2').src = icon2;
-        document.getElementById('icon3').src = icon3;
-        document.getElementById('icon4').src = icon4;
-        document.getElementById('icon5').src = icon5;
-        document.getElementById('sky1').innerHTML = sky1;
-        document.getElementById('sky2').innerHTML = sky2;
-        document.getElementById('sky3').innerHTML = sky3;
-        document.getElementById('sky4').innerHTML = sky4;
-        document.getElementById('sky5').innerHTML = sky5;
-        document.getElementById('high1').innerHTML = Math.round(high1) + "°";
-        document.getElementById('low1').innerHTML = Math.round(low1) + "°";
-        document.getElementById('high2').innerHTML = Math.round(high2) + "°";
-        document.getElementById('low2').innerHTML = Math.round(low2) + "°";
-        document.getElementById('high3').innerHTML = Math.round(high3) + "°";
-        document.getElementById('low3').innerHTML = Math.round(low3) + "°";
-        document.getElementById('high4').innerHTML = Math.round(high4) + "°";
-        document.getElementById('low4').innerHTML = Math.round(low4) + "°";
-        document.getElementById('high5').innerHTML = Math.round(high5) + "°";
-        document.getElementById('low5').innerHTML = Math.round(low5) + "°";
+        [1, 2, 3, 4, 5].forEach(day => {
+            document.getElementById(`icon${day}`).src = iconURL(dailyData.daily[day].weather[0].icon);
+            document.getElementById(`sky${day}`).innerHTML = dailyData.daily[day].weather[0].main;
+    
+            document.getElementById(`day${day}`).innerHTML = getDay(day - 1);
+    
+            const high = Math.round(dailyData.daily[day].temp.max);
+            document.getElementById(`high${day}`).innerHTML = `${high}°`;
+    
+            const low = Math.round(dailyData.daily[day].temp.min);
+            document.getElementById(`low${day}`).innerHTML = `${low}°`;
+        })
     }
     getWeather();
 }
