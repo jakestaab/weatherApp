@@ -39,10 +39,6 @@ const dailyURL = (lat, lon) => {
             "&units=imperial&appid=" + key;
 }
 
-navigator.geolocation.getCurrentPosition((position) => {
-    getURL(position.coords.latitude, position.coords.longitude);
-  });
-
   function errorHandler(err) {
       if(err.code == 1) {
         alert("Access is denied");
