@@ -39,14 +39,6 @@ const dailyURL = (lat, lon) => {
             "&units=imperial&appid=" + key;
 }
 
-  function errorHandler(err) {
-      if(err.code == 1) {
-        alert("Access is denied");
-      } else if(err.code == 2) {
-        alert("Position Unavailable");
-      }
-  }
-
 //fetches weather API data and inputs object property values into HTML
 const getWeather = async () => {
     //today
@@ -106,10 +98,6 @@ const getURL = async (lat, lon) => {
     }
 
     //assigns to defaultLocation the city data to be displayed on page.
-    //first checks localStorage for user-assigned default location;
-    //then checks localStorage for geo-located location;
-    //else uses "Lawrence, Kansas" as default.
-    //otherwise uses what has just been searched for
     if(localStorage.getItem("userSetLocation")) {
         defaultLocation = JSON.parse(localStorage.getItem("userSetLocation"));
     } else if(localStorage.getItem("geoLocale")) {
