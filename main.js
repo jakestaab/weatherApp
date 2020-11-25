@@ -1,13 +1,12 @@
 import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
+let autoLocation;
 let key = "e6829fea390bfd66e1381953b9327c55"; //openweathermap.org API key
 const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 function getDay(offset = 0) {
     return week[(new Date().getDay() + offset) % week.length]
 }
-
-let autoLocation;
 
 const locationButton = document.getElementById("search");
     locationButton.addEventListener("click", (event) => {
@@ -19,6 +18,8 @@ const locationButton = document.getElementById("search");
 const setLocationButton = document.getElementById("setlocation");
     setLocationButton.addEventListener("click", (event) => {
     localStorage.setItem("userSetLocation", JSON.stringify(defaultLocation));
+    const message = capitalizeLocation(defaultLocation) + " set as default location.";
+    alert(message);
 })
 
 //accepts parameter of a location; returns the API URL with that location
