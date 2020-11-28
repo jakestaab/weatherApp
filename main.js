@@ -8,13 +8,14 @@ function getDay(offset = 0) {
     return week[(new Date().getDay() + offset) % week.length]
 }
 
+//search button functionality
 const locationButton = document.getElementById("search");
     locationButton.addEventListener("click", (event) => {
     defaultLocation = document.getElementById("searchedLocation").value;
     getWeather(); //if search button clicked, getWeather needs to be called here
 }, false);
 
-//sets default location in local storage when user clicks setlocation button
+//default location button functionality
 const setLocationButton = document.getElementById("setlocation");
     setLocationButton.addEventListener("click", (event) => {
     localStorage.setItem("userSetLocation", JSON.stringify(defaultLocation));
@@ -22,7 +23,7 @@ const setLocationButton = document.getElementById("setlocation");
     alert(message);
 })
 
-//accepts parameter of a location; returns the API URL with that location
+//returns weather data for location
 const weatherURL = (location) => {
     return "https://api.openweathermap.org/data/2.5/weather?q=" +
                     location + "&units=imperial&appid=" + key;
@@ -88,6 +89,7 @@ const getWeather = async () => {
     })
 }
 
+//checks if user is able to provide location information
 const getGeoLocation = async (lat, lon) => {
     if (lat != null && lon != null) {
         const APILocationURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
