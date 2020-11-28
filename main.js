@@ -75,10 +75,10 @@ const getWeather = async () => {
 
     //five-day
     [1, 2, 3, 4, 5].forEach(day => {
+        document.getElementById(`day${day}`).innerHTML = getDay(day - 1);
+
         document.getElementById(`icon${day}`).src = iconURL(dailyData.daily[day].weather[0].icon);
         document.getElementById(`sky${day}`).innerHTML = dailyData.daily[day].weather[0].main;
-
-        document.getElementById(`day${day}`).innerHTML = getDay(day - 1);
 
         const high = Math.round(dailyData.daily[day].temp.max);
         document.getElementById(`high${day}`).innerHTML = `${high}°`;
@@ -88,7 +88,7 @@ const getWeather = async () => {
     })
 }
 
-const getLocation = async (lat, lon) => {
+const getGeoLocation = async (lat, lon) => {
     if (lat != null && lon != null) {
         const APILocationURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
         "&lon=" + lon + "&appid=" + key;
@@ -111,7 +111,7 @@ const getLocation = async (lat, lon) => {
 }
 
 navigator.geolocation.getCurrentPosition(position => {
-    getLocation(position.coords.latitude, position.coords.longitude);
+    getGeoLocation(position.coords.latitude, position.coords.longitude);
 }, () => {
-    getLocation();
+    getGeoLocation();
 });
