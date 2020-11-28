@@ -88,7 +88,7 @@ const getWeather = async () => {
     })
 }
 
-const getURL = async (lat, lon) => {
+const getLocation = async (lat, lon) => {
     if (lat != null && lon != null) {
         const APILocationURL = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat +
         "&lon=" + lon + "&appid=" + key;
@@ -111,7 +111,7 @@ const getURL = async (lat, lon) => {
 }
 
 navigator.geolocation.getCurrentPosition(position => {
-    getURL(position.coords.latitude, position.coords.longitude);
+    getLocation(position.coords.latitude, position.coords.longitude);
 }, () => {
-    getURL();
+    getLocation();
 });
