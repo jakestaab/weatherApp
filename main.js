@@ -2,7 +2,7 @@ import { windConversion, capitalizeLocation } from './format_funcs.js';
 
 let defaultLocation;
 let autoLocation;
-let key = "e6829fea390bfd66e1381953b9327c55"; //openweathermap.org API key
+
 const week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 function getDay(offset = 0) {
     return week[(new Date().getDay() + offset) % week.length]
